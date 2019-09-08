@@ -4,7 +4,7 @@
 
 ## Unity 内存管理机制
 
-Unity的GC机制，使用了Boehm GC算法（[Boehm]]https://en.wikipedia.org/wiki/Boehm_garbage_collector），是非分代（non-generational）和非压缩（non-compacting）的。"非分代"是指GC执行清理操作时，必须遍历整个内存，并且随着内存的增长，它的性能就会降低。“非压缩”意味着内存中的对象不会被重新定位，去缩小对象之间的内存空隙。注意啦，这点和传统c#的GC机制不同。
+Unity的GC机制，使用了Boehm GC算法[Boehm](https://en.wikipedia.org/wiki/Boehm_garbage_collector)，是非分代（non-generational）和非压缩（non-compacting）的。"非分代"是指GC执行清理操作时，必须遍历整个内存，并且随着内存的增长，它的性能就会降低。“非压缩”意味着内存中的对象不会被重新定位，去缩小对象之间的内存空隙。注意啦，这点和传统c#的GC机制不同。
 
 ## 合理使用Unity Profiler工具进行优化
 
@@ -221,7 +221,6 @@ void Update()
 
 ## 通过Unity Profiler 检查外部引用库是否产生GC
 
-[] //图片
 
 ## 正确的执行顺序 从FixedUpdate,Update，LateUpdate转移到 Awake，Start
 
@@ -307,8 +306,7 @@ void Update()
 ```
 
 
-## 尽量用For替代foreach，Foreach循环编写起来很简单，但是执行起来“非常复杂”。
-## Foreach循环内部使用迭代器迭代给定的数据集并返回值。这比在简单的For循环中迭代索引要复杂得多。
+## 尽量用For替代foreach，Foreach循环编写起来很简单，但是执行起来“非常复杂”。Foreach循环内部使用迭代器迭代给定的数据集并返回值。这比在简单的For循环中迭代索引要复杂得多。
 
 ``` c# example
 
@@ -362,8 +360,7 @@ var pos2 = new Vector3(pos1.x * 2f, pos1.y * 2f, ......);
 
 ```
 
-## 慎用GameObject.Find()，这个方法消耗很大，可用 GameObject.FindWithTag()替代，
-## 最好的方式是在场景中序列化引用
+## 慎用GameObject.Find()，这个方法消耗很大，可用 GameObject.FindWithTag()替代，最好的方式是在场景中序列化引用
 
 ``` c# example
 
